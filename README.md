@@ -29,23 +29,28 @@ python main.py --file path/to/file1.log path/to/file2.log --report average
 ```
 
 ## Доступные аргументы:
---file: путь к одному или нескольким файлам с JSON-объектами, записанными построчно
+--file: путь к одному или нескольким файлам с JSON-объектами, записанными построчно.
+
 --report: тип отчета
 
 ## Доступные типы отчетов:
 average - формирует отчет со списком эндпоинтов, количеством запросов по каждому эндпоинту и средним временем ответа (JSON должен содержать ключи 'url' и 'response_time').
 
 ## Примеры запусков:
-Запуск с одним файлом: ```python main.py --file example1.log --report average```
-![Запуск с одним файлом](launch_one_file.png)
-Запуск с двумя файлами: ```python main.py --file example1.log example2.log --report average```
-![Запуск с двумя файлами](launch_two_files.png)
-Запуск с файлом, где в некоторых JSON отсутствуют нужные ключи, либо неверный тип: ```python main.py --file example3_wrong_data.log --report average```
-![Запуск с файлом, где в некоторых JSON отсутствуют нужные ключи, либо неверный тип](launch_wrong_data.png)
-Запуск с файлом, в котором не JSON-объекты: ```python main.py --file example4_unexpected_data.log --report average```
-![Запуск с файлом, в котором не JSON-объекты](launch_unexpected_data.png)
-Запуск с пустым файлом: ```python main.py --file example5_empty.log --report average```
-![Запуск с пустым файлом](launch_empty.png)
+Запуск с одним файлом: ```python main.py --file log_example_files/example1.log --report average```
+![Запуск с одним файлом](launch_example_screenshots/launch_one_file.png)
+
+Запуск с двумя файлами: ```python main.py --file log_example_files/example1.log log_example_files/example2.log --report average```
+![Запуск с двумя файлами](launch_example_screenshots/launch_two_files.png)
+
+Запуск с файлом, где в некоторых JSON отсутствуют нужные ключи, либо неверный тип: ```python main.py --file log_example_files/example3_wrong_data.log --report average```
+![Запуск с файлом, где в некоторых JSON отсутствуют нужные ключи, либо неверный тип](launch_example_screenshots/launch_wrong_data.png)
+
+Запуск с файлом, в котором не JSON-объекты: ```python main.py --file log_example_files/example4_unexpected_data.log --report average```
+![Запуск с файлом, в котором не JSON-объекты](launch_example_screenshots/launch_unexpected_data.png)
+
+Запуск с пустым файлом: ```python main.py --file log_example_files/example5_empty.log --report average```
+![Запуск с пустым файлом](launch_example_screenshots/launch_empty.png)
 
 ## Тестирование:
 Скрипт покрыт юнит-тестами на pytest.
