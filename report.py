@@ -13,6 +13,8 @@ def register_report(key_name):
     Декоратор регистрирует отчеты в списке доступных отчетов.
     """
     def decorator(cls):
+        if key_name in REPORTS:
+            raise ValueError(f'Duplicate report key: {key_name}')
         REPORTS[key_name] = cls
         return cls
     return decorator
