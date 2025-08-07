@@ -1,13 +1,8 @@
 import argparse
 import pathlib
 
+from report import REPORTS
 from log_parser import LogParser
-from report import AverageResponseTimeReport
-
-
-REPORTS = {
-    'average': AverageResponseTimeReport,
-}
 
 
 def main():

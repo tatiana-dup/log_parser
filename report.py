@@ -5,6 +5,19 @@ from statistics import mean
 from tabulate import tabulate
 
 
+REPORTS: dict = {}
+
+
+def register_report(key_name):
+    """
+    Декоратор регистрирует отчеты в списке доступных отчетов.
+    """
+    def decorator(cls):
+        REPORTS[key_name] = cls
+        return cls
+    return decorator
+
+
 class Report(ABC):
     """
     Абстрактный базовый класс для всех типов отчётов.
@@ -36,6 +49,7 @@ class Report(ABC):
         pass
 
 
+@register_report('average')
 class AverageResponseTimeReport(Report):
     """
     Класс для формирования отчета со списком эндпоинтов, количеством запросов
